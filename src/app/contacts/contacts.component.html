@@ -1,11 +1,33 @@
-<h2>contacts works!</h2>
+<h2>My Contacts</h2>
+<ul class="contacts">
+  <li *ngFor="let contact of contacts" (click)="onSelect(contact)" [class.selected]="contact === selectedContact">
+    <span class="badge">{{contact.id}}</span> {{contact.name}}
+  </li>
+</ul>
 <!--<div *ngFor="let contact-item of contact-items">-->
 <!--  <h3>-->
 <!--    {{Contact-item.name}}-->
 <!--  </h3>-->
 <!--</div>-->
-<h2>{{contact.name}} Details</h2>
-<input id="name" [(ngModel)]="contact.name" placeholder="name">
-<div><span>id: </span>{{contact.id}}</div>
-<div><span>name: </span>{{contact.name}}</div>
-<div><span>phone: </span>{{contact.phone}}</div>
+
+<div *ngIf="selectedContact">
+  <h2>{{selectedContact.name | uppercase}} Details</h2>
+<!--  <div><span>id: </span>{{selectedContact.id}}</div>-->
+  <div>
+    <label for="contact-name">Contact Name: </label>
+    <input id="contact-name" [(ngModel)]="selectedContact.name" placeholder="name">
+  </div>
+  <div>
+  <label for="contact-phone">Contact Phone: </label>
+  <input id="contact-phone" [(ngModel)]="selectedContact.phone" placeholder="phone">
+</div>
+</div>
+
+
+
+
+<!--<h2>{{contact.name}} Details</h2>-->
+<!--<input id="name" [(ngModel)]="contact.name" placeholder="name">-->
+<!--<div><span>id: </span>{{contact.id}}</div>-->
+<!--<div><span>name: </span>{{contact.name}}</div>-->
+<!--<div><span>phone: </span>{{contact.phone}}</div>-->
