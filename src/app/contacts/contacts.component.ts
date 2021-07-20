@@ -3,6 +3,7 @@ import { Contact } from '../contact';
 
 import { CONTACTS } from '../mock-contacts';
 
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
